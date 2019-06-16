@@ -16,7 +16,7 @@ async def on_issue_opened(
     github_api: RawGitHubAPI = RUNTIME_CONTEXT.app_installation_client
     comments_url = issue["comments_url"]
     author = issue["user"]["login"]
-    github_api.post(
+    await github_api.post(
         comments_url,
         data=dict(
             body=f"ha ha ha! @{author} are you sure?? 🤖"
